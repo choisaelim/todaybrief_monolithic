@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.8-SNAPSHOT'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id "com.moowork.node" version "1.3.1"
 }
 
 group = 'com.example'
@@ -60,19 +61,20 @@ dependencyManagement {
 	}
 }
 
+apply plugin: "com.moowork.node"
 // tasks.named('test') {
 // 	useJUnitPlatform()
 // }
 def frontendDir = "$projectDir/frontend"
 // npm install
 task appNpmInstall(type: NpmTask) {
-	workingDir = file("${project.projectDir}/frontend")
+	workingDir = file("${frontendDir}")
 	args = ["install"]
 }
 
 // npm build
 task npmBuild(type: NpmTask) {
-	workingDir = file("${project.projectDir}/frontend")
+	workingDir = file("${frontendDir}")
 	args = ["run", "build"]
 }
 
