@@ -65,25 +65,36 @@ apply plugin: "com.moowork.node"
 // tasks.named('test') {
 // 	useJUnitPlatform()
 // }
-def frontendDir = "$projectDir/frontend"
-// npm install
+def webappDir = "$projectDir/frontend"
+
 task appNpmInstall(type: NpmTask) {
-	workingDir = file("${frontendDir}")
-	args = ["install"]
+    workingDir = file("${webappDir}")
+    args = ["run", "build"]
 }
-
-// npm build
-task npmBuild(type: NpmTask) {
-	workingDir = file("${frontendDir}")
-	args = ["run", "build"]
-}
-
-// 빌드된 결과 이동
 task copyWebApp(type: Copy) {
-	from "frontend/build"
-	into 'build/resources/main/static/'
+    from 'frontend/build'
+    into "build/resources/main/static"
 }
+copyWebApp.dependsOn(appNpmInstall)
+compileJava.dependsOn(copyWebApp)
+// // npm install
+// task appNpmInstall(type: NpmTask) {
+// 	workingDir = file("${frontendDir}")
+// 	args = ["install"]
+// }
 
-npmBuild.dependsOn appNpmInstall
-copyWebApp.dependsOn npmBuild
-compileJava.dependsOn copyWebApp
+// // npm build
+// task npmBuild(type: NpmTask) {
+// 	workingDir = file("${frontendDir}")
+// 	args = ["run", "build"]
+// }
+
+// // 빌드된 결과 이동
+// task copyWebApp(type: Copy) {
+// 	from "frontend/build"
+// 	into 'build/resources/main/static/'
+// }
+
+// npmBuild.dependsOn appNpmInstall
+// copyWebApp.dependsOn npmBuild
+// compileJava.dependsOn copyWebApp
