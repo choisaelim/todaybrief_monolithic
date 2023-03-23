@@ -1,21 +1,19 @@
 spring:
     application:
         name: breif-service
-    profiles:
-        active: dev
+    # profiles:
+    #     active: dev
     cloud:
         config:
             enabled: false
-    config:
-        activate:
-            on-profile: dev
+    # config:
+    #     activate:
+    #         on-profile: dev
     datasource:
         driver-class-name: DB_CLASS
         url: DB_URL
         username: DB_USER
         password: DB_PASS
-    # config:
-    #     import: optional:configserver:http://localhost:8888
 server:
     port: 8080
 
