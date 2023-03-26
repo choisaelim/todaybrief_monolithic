@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -122,7 +123,6 @@ public class MapController {
 
             JSONObject jsonObject = (JSONObject) jsonParser.parse(jsonString.getBody());
             JSONArray jsonItemList = (JSONArray) jsonObject.get("routes");
-            ;
 
             if (jsonItemList != null && jsonItemList.size() > 0) {
                 JSONObject jsonItem = (JSONObject) ((JSONObject) jsonItemList.get(0)).get("summary");
@@ -192,8 +192,8 @@ public class MapController {
         return dto;
     }
 
-    @GetMapping("/weather/{userId}")
-    public ResponseEntity<List<WeatherInfoDto>> getWeather(@PathVariable("userId") String userId)
+    @GetMapping("/weather")
+    public ResponseEntity<List<WeatherInfoDto>> getWeather(@RequestParam("userId") String userId)
             throws ParseException {
 
         Iterable<MapEntity> mapList = mapService.getMapbyUserId(userId);
@@ -221,8 +221,8 @@ public class MapController {
         return ResponseEntity.status(HttpStatus.OK).body(list);
     }
 
-    @GetMapping("/car/{userId}")
-    public ResponseEntity<List<CarInfoDto>> getCar(@PathVariable("userId") String userId) throws ParseException {
+    @GetMapping("/car")
+    public ResponseEntity<List<CarInfoDto>> getCar(@RequestParam("userId") String userId) throws ParseException {
 
         Iterable<MapEntity> mapList = mapService.getMapbyUserId(userId);
         List<CarInfoDto> list = new ArrayList<>();

@@ -7,13 +7,13 @@ const API_URL = "";
 const getWeather = () => {
   const currentUser = AuthService.getCurrentUser();
 
-  return axios.get(API_URL + "map/weather/" + currentUser.userId, { headers: authHeader() });
+  return axios.get(API_URL + "map/weather?userId=" + currentUser.userId, { headers: authHeader() });
 };
 
 const getCar = () => {
-  const currentUser = AuthService.getCurrentUser();
+  const currentUser = AuthService.getCurrentUser(); 
 
-  return axios.get(API_URL + "map/car/" + currentUser.userId, { headers: authHeader() });
+  return axios.get(API_URL + "map/car?userId=" + currentUser.userId, { headers: authHeader() });
 };
 
 const UserService = {

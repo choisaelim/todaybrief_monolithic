@@ -1,0 +1,16 @@
+spring:
+    config:
+        activate:
+            on-profile: pro
+    datasource:
+        driver-class-name: ${DB_CLASS}
+        url: ${DB_URL}
+        username: ${DB_USER}
+        password: ${DB_PASS}
+
+token:
+    expiration_time: 86400000
+    secret: ${SECRET_TOKEN}
+api:
+    weatherkey: ${WEATHER_KEY}
+    kakaorestkey: ${KAKAO_REST_KEY}

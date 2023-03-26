@@ -1,25 +1,10 @@
 spring:
     application:
         name: breif-service
-    # profiles:
-    #     active: dev
+    profiles:
+        active: pro
     cloud:
         config:
             enabled: false
-    # config:
-    #     activate:
-    #         on-profile: dev
-    datasource:
-        driver-class-name: ${DB_CLASS}
-        url: ${DB_URL}
-        username: ${DB_USER}
-        password: ${DB_PASS}
 server:
     port: 8080
-
-token:
-    expiration_time: 86400000
-    secret: ${SECRET_TOKEN}
-api:
-    weatherkey: ${WEATHER_KEY}
-    kakaorestkey: ${KAKAO_REST_KEY}
