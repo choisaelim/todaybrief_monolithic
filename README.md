@@ -20,6 +20,16 @@ AWS로 운영중인 웹사이트에도 반영됩니다.
  <img src = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/410d88e7-b7a9-4a60-9846-7934752afe9b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230326%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230326T145248Z&X-Amz-Expires=86400&X-Amz-Signature=597062ba6225c5a3bfd1ecb9dd188da706078ea5e7aed9b95eedf378e6f4e3df&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject">
 </p>
    
+젠킨스 파이프라인    
+<p align="center">
+ <img src = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f561c8c0-382b-44c3-94b9-1f397ccb2311/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230327%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230327T111757Z&X-Amz-Expires=86400&X-Amz-Signature=77cd1d5ae23516dd8c49b4d14ec236bd0313412d377051e6c775c893b95169ed&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject">
+</p>
+   
+argoCD 설정 화면   
+<p align="center">
+ <img src = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c93f72ae-9b9b-4adf-9c2a-47fcc7faaf05/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230327%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230327T111813Z&X-Amz-Expires=86400&X-Amz-Signature=c7bcc87d3d9e0db6e022183398aeefba5a4c009aecb60dd0ca01a0e3dcd31a7f&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject">
+</p>
+   
 ### 사용기술
 > 쿠버네티스(with kops)  
 > AWS  
