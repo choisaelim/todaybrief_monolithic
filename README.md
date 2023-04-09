@@ -17,7 +17,7 @@
 AWS로 운영중인 웹사이트에도 반영됩니다.
 
 <p align="center">
- <img src = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/410d88e7-b7a9-4a60-9846-7934752afe9b/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230326%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230326T145248Z&X-Amz-Expires=86400&X-Amz-Signature=597062ba6225c5a3bfd1ecb9dd188da706078ea5e7aed9b95eedf378e6f4e3df&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject">
+ <img src = "https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F410d88e7-b7a9-4a60-9846-7934752afe9b%2FUntitled.png?id=630cb3dd-8fd8-4a0d-acd9-61319b3ff785&table=block&spaceId=71040084-e6a8-42da-9ccc-360e470f3823&width=2000&userId=e913119f-13fe-49e6-b319-4e3cac0236a4&cache=v2">
 </p>
    
 젠킨스 파이프라인    
