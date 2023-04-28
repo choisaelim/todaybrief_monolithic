@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.nio.charset.StandardCharsets;
 
 import org.json.JSONObject;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import com.example.user.dto.LoginRequest;
 import com.example.user.dto.UserDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -30,11 +31,11 @@ public class MapControllerTest {
 
     private String token;
 
-    private UserDto loginUser() {
-        String userId = "guest";
+    private LoginRequest loginUser() {
+        String userName = "guest";
         String password = "1234567";
-        UserDto userDto = new UserDto();
-        userDto.setUserId(userId);
+        LoginRequest userDto = new LoginRequest();
+        userDto.setUsername(userName);
         userDto.setPassword(password);
         return userDto;
     }
@@ -42,7 +43,7 @@ public class MapControllerTest {
     @Test
     public void 로그인() throws Exception {
 
-        UserDto user = loginUser();
+        LoginRequest user = loginUser();
         String content = objectMapper.writeValueAsString(user);
 
         MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/login")
