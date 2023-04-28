@@ -2,7 +2,7 @@ spring:
     application:
         name: breif-service
     profiles:
-        active: pro
+        active: dev
     cloud:
         config:
             enabled: false
