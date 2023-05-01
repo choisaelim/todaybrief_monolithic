@@ -29,7 +29,7 @@ public class UserDto implements UserDetails {
     private String email;
     @JsonIgnore
     private String password;
-    private String name;
+    private String username;
     private String userId;
     private Date createdAt;
 
@@ -44,7 +44,7 @@ public class UserDto implements UserDetails {
             Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.userId = userId;
-        this.name = username;
+        this.username = username;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
@@ -58,7 +58,7 @@ public class UserDto implements UserDetails {
         return new UserDto(
                 user.getId(),
                 user.getUserId(),
-                user.getName(),
+                user.getUsername(),
                 user.getEmail(),
                 user.getEncryptedPwd(),
                 authorities);
@@ -76,7 +76,7 @@ public class UserDto implements UserDetails {
 
     @Override
     public String getUsername() {
-        return name;
+        return userId;
     }
 
     @Override

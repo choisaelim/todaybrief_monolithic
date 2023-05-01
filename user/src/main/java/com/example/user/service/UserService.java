@@ -8,7 +8,7 @@ import com.example.user.jpa.UserEntity;
 
 @Service
 public interface UserService extends UserDetailsService {
-    UserDto createUser(UserDto userDto);
+    UserDto createUser(UserDto userDto) throws Exception;
 
     UserDto getUserByUserId(String userId);
 

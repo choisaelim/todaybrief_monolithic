@@ -6,5 +6,13 @@ spring:
     cloud:
         config:
             enabled: false
+    jpa:
+        # hibernate:
+        # ddl-auto: validate
+        defer-datasource-initialization: true
+        properties:
+            hibernate:
+                show_sql: true
+                format_sql: true
 server:
     port: 8080

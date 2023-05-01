@@ -16,10 +16,12 @@ import org.springframework.stereotype.Service;
 
 import com.example.user.dto.ResponseOrder;
 import com.example.user.dto.UserDto;
+import com.example.user.jpa.RoleRepository;
 import com.example.user.jpa.UserEntity;
 import com.example.user.jpa.UserRepository;
 
 import lombok.RequiredArgsConstructor;
+import com.example.user.dto.ERole;
 
 @Service
 @RequiredArgsConstructor
@@ -29,15 +31,26 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
+    private final RoleRepository roleRepository;
+
     @Override
-    public UserDto createUser(UserDto userDto) {
-        userDto.setUserId(UUID.randomUUID().toString());
+    public UserDto createUser(UserDto userDto) throws Exception {
+        // userDto.setUserId(UUID.randomUUID().toString());
+        // 중복확인(by userId)
+        if (userRepository.findByUserId(userDto.getUserId()) != null) {
+            throw new Exception("이미 가입한 회원입니다.");
+        }
 
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         // client 단에서 받은 userdto를 entity 클래스로 변환
         UserEntity entity = mapper.map(userDto, UserEntity.class);
         entity.setEncryptedPwd(passEncoder.encode(userDto.getPassword()));
+
+        // 기본 Role USER로 지정
+        if (entity.getRoles().size() == 0) {
+            entity.getRoles().addAll(roleRepository.findByName(ERole.ROLE_USER));
+        }
         userRepository.save(entity);
 
         UserDto userVo = mapper.map(entity, UserDto.class);
@@ -62,11 +75,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity entity = userRepository.findByName(username);
+    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
+        UserEntity entity = userRepository.findByUserId(userId);
 
         if (entity == null)
-            throw new UsernameNotFoundException(username);
+            throw new UsernameNotFoundException(userId);
 
         // ModelMapper mapper = new ModelMapper();
 

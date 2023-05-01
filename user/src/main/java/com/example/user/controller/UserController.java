@@ -52,12 +52,12 @@ public class UserController {
     public String status() {
         return String.format("It's Working in User Service"
                 + ", port(local.server.port)=" + env.getProperty("local.server.port"));
-                // + ", port(server.port)=" + env.getProperty("server.port")
-                // + ", gateway ip=" + env.getProperty("gateway.ip")
-                // + ", message=" + env.getProperty("greeting.message")
-                // + ", token secret=" + env.getProperty("token.secret")
-                // + ", token expiration time=" + env.getProperty("token.expiration_time")
-                // + ", test=" + env.getProperty("test"));
+        // + ", port(server.port)=" + env.getProperty("server.port")
+        // + ", gateway ip=" + env.getProperty("gateway.ip")
+        // + ", message=" + env.getProperty("greeting.message")
+        // + ", token secret=" + env.getProperty("token.secret")
+        // + ", token expiration time=" + env.getProperty("token.expiration_time")
+        // + ", test=" + env.getProperty("test"));
     }
 
     @PostMapping("/login")
@@ -104,7 +104,7 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser user) {
+    public ResponseEntity<ResponseUser> createUser(@RequestBody RequestUser user) throws Exception {
         ModelMapper mapper = new ModelMapper();
 
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);

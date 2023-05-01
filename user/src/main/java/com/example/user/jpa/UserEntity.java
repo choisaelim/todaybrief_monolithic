@@ -19,13 +19,13 @@ import lombok.Data;
 @Table(name = "users")
 public class UserEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Column(nullable = false, length = 50, unique = true)
+    @Column(nullable = true, length = 50, unique = true)
     private String email;
     @Column(nullable = false, length = 50)
-    private String name;
+    private String username;
     @Column(nullable = false, unique = true)
     private String userId;
     @Column(nullable = false, unique = true)
